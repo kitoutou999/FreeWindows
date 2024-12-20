@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Interface Web</title>
+</head>
+<body>
+    <div id="notification" class="notification"></div>
+    <div id="file-list">
+        <h2>List of files</h2>
+        <form id="create-file-form" onsubmit="createFile(event)">
+            <input type="text" id="new-filename" name="new-filename" placeholder="File name" required>
+            <button type="submit">+</button>
+        </form>
+        <ul id="item_liste">
+            {% for file in files %}
+            <li>
+                <div class="file-item">
+                    <a href="#" class="name-button" onclick="loadFileContent('{{ file }}')">{{ file[:-4] }}</a>
+                    <a href="#" class="delete-button" onclick="deleteFile('{{ file }}')">x</a>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div id="file-content">
+        <h2>File content</h2>
+        <form id="file-form" onsubmit="saveFileContent(event)">
+            <input type="hidden" id="filename" name="filename">
+            <textarea placeholder="Enter your command" id="content" name="content" rows="20" cols="80" spellcheck="false"></textarea><br>
+            <button id="Sauvegarder" type="submit">Save</button>
+        </form>
+        <h2>Terminal</h2>
+        <div id="terminal">
+            <pre id="terminal-output"></pre>
+            <input type="text" id="terminal-input" placeholder="Test your command">
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

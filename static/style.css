@@ -1,0 +1,230 @@
+body {
+    display: flex;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    height: 100vh;
+    overflow: hidden; 
+}
+
+#file-list {
+    width: 30%;
+    border-right: 1px solid #ccc;
+    padding: 20px;
+    background-color: #2c3e50;
+    color: white;
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto; 
+}
+
+#file-list h2 {
+    margin-top: 0;
+}
+
+#create-file-form {
+    display: flex;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#create-file-form input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    font-size: 14px;
+    background-color: #34495e;
+    color: white;
+    border: none;
+    box-sizing: border-box; 
+}
+
+#create-file-form input:focus {
+    outline: none;
+}
+
+#create-file-form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    background-color: #1abc9c;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#create-file-form button:hover {
+    background-color: #16a085;
+}
+
+#file-list ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+}
+
+#file-list ul li {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.file-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name-button {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    flex: 1;
+    background-color: #34495e;
+    border-radius: 5px 0 0 5px;
+    text-align: center;
+    transition: background-color 0.3s;
+    border: none;
+    overflow: scroll;
+}
+
+.name-button:hover {
+    background-color: #1abc9c;
+}
+
+.delete-button {
+    background-color: #e74c3c;
+    color: white;
+    width: 30px;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
+}
+
+#file-content {
+    width: 70%;
+    padding: 20px;
+    background-color: white;
+    height: 100vh; 
+    overflow-y: auto; 
+    box-sizing: border-box; 
+}
+
+#file-content h2 {
+    margin-top: 0;
+}
+
+#file-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%; 
+}
+
+#file-form textarea,
+#file-form button,
+#terminal-input {
+    width: 100%; 
+    box-sizing: border-box; 
+}
+
+#file-form textarea {
+    height: 400px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: monospace;
+    font-size: 14px;
+    
+
+}
+
+#file-form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1abc9c;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 20px; 
+}
+
+#file-form button:hover {
+    background-color: #16a085;
+}
+
+#terminal {
+    margin-top: 20px;
+    width: 100%; 
+}
+
+#terminal-output {
+    background-color: #2c3e50;
+    color: white;
+    padding: 10px;
+    border-radius:5px 5px 0 0 ;
+    height: 230px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    box-sizing: border-box; 
+    margin-bottom: 0;
+}
+
+#terminal-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius:0 0 5px 5px;
+    font-size: 14px;
+    margin-top: 10px;
+    background-color: #34495e;
+    color: white;
+    border: none;
+    box-sizing: border-box; 
+    margin-top: 0;
+    
+}
+
+#terminal-input:focus {
+    outline: none;
+}
+
+/* Styles pour les notifications */
+.notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1abc9c;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 1000;
+}
+
+.notification.error {
+    background-color: #e74c3c;
+}
+
+.notification.show {
+    opacity: 1;
+}
